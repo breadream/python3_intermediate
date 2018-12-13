@@ -16,3 +16,25 @@ for i in xyz:
     
 [print(i) for i in xyz] # list comprehension; one liner, building a list  
 (print(i) for i in xyz) # generator object, nothing's gonna happen 
+
+
+[[print(i,ii) for ii in range(5)] for i in range(5)]
+
+for i in range(5):
+    for ii in range(5):
+        print(i, ii) 
+
+
+xyz = (((i, ii) for ii in range(9999999999)) for i in range(9999999999))
+
+# this will run because xyz is a generator object
+for i in xyz:
+    for ii in i:
+        print(ii)
+
+
+xyz = (print(i) for i in range(5))
+
+for i in xyz:
+    i
+# instead of print(i) 
