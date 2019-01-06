@@ -2,11 +2,11 @@ import tensorflow as tf
 
 mnist = tf.keras.datasets.mnist # 28x28 images of handwritten digits 0-9
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
-x_train = tf.keras.utils.normalize(x_train, axis=1)
-x_test = tf.keras.utils.normalize(x_test, axis=1)
+x_train = tf.keras.utils.normalize(x_train, axis=1).reshape(x_train[0].shape[0], -1)
+x_test = tf.keras.utils.normalize(x_test, axis=1).reshape(x_test[0].shape[0], -1)
 
 model = tf.keras.models.Sequential()
-model.add(tf.keras.layers.Flatten(input_shape=x_train[0].shape)) # flatten it 
+#model.add(tf.keras.layers.Flatten(input_shape=x_train[0].shape)) # flatten it 
 model.add(tf.keras.layers.Dense(128, activation=tf.nn.relu)) # layer1
 model.add(tf.keras.layers.Dense(128, activation=tf.nn.relu)) # layer2
 # 10 -> the number of classifications, softmax -> probability distribution
