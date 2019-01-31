@@ -38,8 +38,8 @@ import random
 random.shuffle(training_data)
 
 
-X = []
-y = []
+X = [] # feature set
+y = [] # labels
 
 for features,label in training_data:
     X.append(features)
@@ -56,3 +56,4 @@ pickle_out.close()
 pickle_out = open("y.pickle","wb")
 pickle.dump(y, pickle_out)
 pickle_out.close()
+
